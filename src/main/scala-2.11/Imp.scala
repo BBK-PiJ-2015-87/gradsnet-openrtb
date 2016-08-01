@@ -40,3 +40,8 @@ case class Imp (
                )
 {
 }
+
+object Imp {
+  def withDefaults() : Imp = Imp(instl = Some(0), bidfloor = Some(0), bidfloorcur = Some("USD")
+  )
+}
