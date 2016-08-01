@@ -4,7 +4,8 @@
   *
   * @param w width in pixels. If no format objects are specified, this is an exact width requirement.
   * @param h height in pixels. If no format objects are specified, this is an exact height requirement.
-  * @param format list of Format objects. If none are specified, then use of the h and w attributes is highly recommended.
+  * @param format list of Format objects. If none are specified, then use of the h and w attributes
+  *               is highly recommended.
   * @deprecated wmax Deprecated in favor of the format array.
   * @deprecated hmax Deprecated in favor of the format array.
   * @deprecated wmin Deprecated in favor of the format array.

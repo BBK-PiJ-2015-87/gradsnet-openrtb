@@ -8,14 +8,21 @@
   * @param device Details about the user’s device to which the impression will be delivered.
   * @param user Details about the human user of the device
   * @param test Indicator of test mode in which auctions are not billable, where 0 = live mode, 1 = test mode.
-  * @param at Auction type, where 1 = First Price, 2 = Second Price Plus. Exchange-specific auction types can be defined using values greater than 500.
-  * @param tmax Maximum time in milliseconds to submit a bid to avoid timeout. This value is commonly communicated offline.
+  * @param at Auction type, where 1 = First Price, 2 = Second Price Plus. Exchange-specific auction types can be
+  *           defined using values greater than 500.
+  * @param tmax Maximum time in milliseconds to submit a bid to avoid timeout. This value is commonly
+  *             communicated offline.
   * @param wseat Whitelist of buyer seats allowed to bid on this impression. Omission implies no seat restrictions
-  * @param allimps Flag to indicate if Exchange can verify that the impressions offered represent all of the impressions available in context to support road-blocking. 0 = no or unknown, 1 = yes, the impressions offered represent all that are available.
-  * @param cur Array of allowed currencies for bids on this bid request using ISO-4217 alpha codes. Recommended only if the exchange accepts multiple currencies.
+  * @param allimps Flag to indicate if Exchange can verify that the impressions offered represent all of the
+  *                impressions available in context to support road-blocking. 0 = no or unknown, 1 = yes,
+  *                the impressions offered represent all that are available.
+  * @param cur Array of allowed currencies for bids on this bid request using ISO-4217 alpha codes.
+  *            Recommended only if the exchange accepts multiple currencies.
   * @param bcat Blocked advertiser categories using the IAB content categories.
   * @param badv Block list of advertisers by their domains (e.g., “example.com”).
-  * @param bapp Block list of applications by their platform-specific exchange-independent application identifiers. On Android, these should be bundle or package names (e.g., com.foo.mygame). On iOS, these are numeric IDs.
+  * @param bapp Block list of applications by their platform-specific exchange-independent application identifiers.
+  *             On Android, these should be bundle or package names (e.g., com.foo.mygame).
+  *             On iOS, these are numeric IDs.
   * @param regs Specifies any industry, legal or governmental regulations in force for this request
   * @param ext Placeholder for exchange-specific extensions to OpenRTB
   */
