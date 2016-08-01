@@ -19,7 +19,7 @@
   * @param exp Advisory as to the number of seconds that may elapse between the auction and the actual impression
   * @param ext Placeholder for exchange-specific extensions to OpenRTB
   */
-case class Imp (
+case class Imp(
                id:                String = "",
                banner:            Option[Banner] = None,
                video:             Option[Video] = None,
@@ -37,7 +37,7 @@ case class Imp (
                iframebuster:      Option[List[String]] = None,
                exp:               Option[Int] = None,
                ext:               Option[Ext] = None
-               )
+              )
 {
 }
 

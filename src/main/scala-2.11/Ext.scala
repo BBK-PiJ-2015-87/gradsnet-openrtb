@@ -1,3 +1,3 @@
-class Ext {
+case class Ext() {
 
 }

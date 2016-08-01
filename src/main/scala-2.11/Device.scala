@@ -1,3 +1,3 @@
-class Device {
+case class Device(){
 
 }

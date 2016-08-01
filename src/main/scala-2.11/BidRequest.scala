@@ -19,8 +19,7 @@
   * @param regs Specifies any industry, legal or governmental regulations in force for this request
   * @param ext Placeholder for exchange-specific extensions to OpenRTB
   */
-
-case class BidRequest (
+case class BidRequest(
                       id:       String = "",
                       imp:      List[Imp] = List(),
                       site:     Option[Site] = None,
@@ -38,7 +37,7 @@ case class BidRequest (
                       bapp:     Option[List[String]] = None,
                       regs:     Option[Regs] = None,
                       ext:      Option[Ext] = None
-                      )
+                     )
 {
 
 }
