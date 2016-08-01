@@ -20,7 +20,6 @@
   * @param ext Placeholder for exchange-specific extensions to OpenRTB
   */
 
-
 case class Banner(
                  w:         Option[Int] = None,
                  h:         Option[Int] = None,
