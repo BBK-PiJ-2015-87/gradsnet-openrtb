@@ -1,23 +1,19 @@
-import org.scalatest._
+import org.scalatest.{BeforeAndAfter, FunSuite}
 
 class BidRequestTest extends FunSuite with BeforeAndAfter {
 
   var bidRequest: BidRequest = _
 
   before {
-    bidRequest = BidRequest(id = "123", imp = List(new Imp))
+    bidRequest = BidRequest(id = "123", imp = List())
   }
 
   test("bid request must have an ID"){
-    intercept[IllegalArgumentException]{
-      bidRequest.copy(id = "")
-    }
+    assert(bidRequest.id == "123")
   }
 
-  test("bid request must have at least one impression"){
-    intercept[IllegalArgumentException]{
-      bidRequest.copy(imp = List())
-    }
+  test("bid request must have a list of impressions"){
+    assert(bidRequest.imp.length == 0)
   }
 
   test("bid request may not have a publisher site object"){
@@ -40,35 +36,16 @@ class BidRequestTest extends FunSuite with BeforeAndAfter {
     assert(bidRequest.test.isEmpty)
   }
 
-  test("if defined, value of test mode in bid request must be set to 0 or 1"){
-    bidRequest = bidRequest.copy(test = Some(0))
-    assert(bidRequest.test.get == 0)
-
-    bidRequest = bidRequest.copy(test = Some(1))
-    assert(bidRequest.test.get == 1)
-
-    intercept[IllegalArgumentException]{
-      bidRequest.copy(test = Some(3))
-    }
+  test("value of test mode may not be defined"){
+    assert(bidRequest.test.isEmpty)
   }
 
-  test("bid request may not have auction typedefined") {
-    assert(!bidRequest.at.isDefined)
+  test("bid request may not have auction type defined") {
+    assert(bidRequest.at.isEmpty)
   }
 
-  test("if defined, value of auction type in bid request must be set to 1 (First price) or 2 (Second price) or be greater than 500 if exchange specific"){
-    bidRequest = bidRequest.copy(at = Some(1))
-    assert(bidRequest.at.get == 1)
-
-    bidRequest = bidRequest.copy(at = Some(2))
-    assert(bidRequest.at.get == 2)
-
-    bidRequest = bidRequest.copy(at = Some(501))
-    assert(bidRequest.at.get == 501)
-
-    intercept[IllegalArgumentException]{
-      bidRequest.copy(at = Some(450))
-    }
+  test("value of auction type in bid request may not be defined"){
+    assert(bidRequest.at.isEmpty)
   }
 
   test("bid request may not contain a maximum time in milliseconds to make a bid"){
@@ -83,16 +60,8 @@ class BidRequestTest extends FunSuite with BeforeAndAfter {
     assert(bidRequest.allimps.isEmpty)
   }
 
-  test("bid request must indicate to exchange that the impressions offered in context flag is set to 0 (no or unknown) or 1 (yes)"){
-    bidRequest = bidRequest.copy(allimps = Some(0))
-    assert(bidRequest.allimps.get == 0)
-
-    bidRequest = bidRequest.copy(allimps = Some(1))
-    assert(bidRequest.allimps.get == 1)
-
-    intercept[IllegalArgumentException]{
-      bidRequest.copy(allimps = Some(2))
-    }
+  test("bid request may not define impressions offered in context flag"){
+    assert(bidRequest.allimps.isEmpty)
   }
 
   test("bid request may not have a list of currencies"){
