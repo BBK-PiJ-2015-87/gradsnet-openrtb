@@ -87,4 +87,14 @@ class BidRequestTest extends FunSuite with BeforeAndAfter {
   test("bid request may not have an object with exchange-specific extensions"){
     assert(bidRequest.ext.isEmpty)
   }
+
+  test("bid request with default values as per OpenRTB spec"){
+    bidRequest = BidRequest.withDefaults
+
+    assert(bidRequest.id == "")
+    assert(bidRequest.imp.length == 0)
+    assert(bidRequest.test.get == 0)
+    assert(bidRequest.at.get == 2)
+    assert(bidRequest.allimps.get == 0)
+  }
 }

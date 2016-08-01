@@ -40,4 +40,10 @@ case class BidRequest (
                       ext:      Option[Ext] = None
                       )
 {
+
+}
+
+object BidRequest{
+  def withDefaults() : BidRequest = BidRequest(test = Some(0), at = Some(2), allimps = Some(0)
+  )
 }
