@@ -1,4 +1,5 @@
 import com.fasterxml.jackson.databind.{ObjectMapper, JsonNode}
+import org.openrtb.validator.{OpenRtbVersion, OpenRtbInputType, OpenRtbValidatorFactory}
 import org.scalatest.{BeforeAndAfter, FunSuite}
 
 import scala.io.Source
@@ -113,8 +114,13 @@ class BidRequestTransformerTest extends FunSuite with BeforeAndAfter{
       Some(ext)
     )
 
+    val validator = OpenRtbValidatorFactory.getValidator(OpenRtbInputType.BID_REQUEST, OpenRtbVersion.V2_3)
+
     val expected = Source.fromFile("src/test/resources/bidRequestAsString.txt").mkString
     val result = transformer.bidRequestToJson(bidRequest)
+
+    val result2 = validator.validate(result)
+    println(result2.isValid)
 
     assert(result == expected)
   }
