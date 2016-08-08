@@ -1,3 +1,5 @@
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize
+
 /**
   * Impression describes an ad placement or impression in the auction. Every impression must have an id.
   *
@@ -35,6 +37,7 @@ case class Imp(
                displaymanagerver: Option[String] = None,
                instl:             Option[Int] = None,
                tagid:             Option[String] = None,
+               @JsonDeserialize(contentAs = classOf[java.lang.Float])
                bidfloor:          Option[Float] = None,
                bidfloorcur:       Option[String] = None,
                clickbrowser:      Option[Int] = None,
