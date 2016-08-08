@@ -1,10 +1,15 @@
-import org.scalatest.FunSuite
+import com.fasterxml.jackson.databind.{ObjectMapper, JsonNode}
+import org.scalatest.{BeforeAndAfter, FunSuite}
 
-class BidRequestSerializerTest extends FunSuite {
+import scala.io.Source
+
+class BidRequestTransformerTest extends FunSuite with BeforeAndAfter{
+
+  val transformer = BidRequestTransformer
 
   test("should construct bid request from json file"){
     val json = scala.io.Source.fromFile("src/test/resources/mobileBidRequest.json").mkString
-    val bidRequest = BidRequestSerializer.fromJsonToBidRequest(json)
+    val bidRequest = transformer.fromJsonToBidRequest(json)
 
     val imp = bidRequest.imp(0)
     val banner = imp.banner.get
@@ -61,5 +66,56 @@ class BidRequestSerializerTest extends FunSuite {
     assert(bidRequest.at.get == 2)
     assert(bidRequest.bcat.get == List("IAB25", "IAB7-39", "IAB8-18", "IAB8-5", "IAB9-9"))
     assert(bidRequest.badv.get == List("apple.com", "go-text.me", "heywire.com"))
+  }
+
+
+  test("should transform bid request object to json string "){
+    val mapper = new ObjectMapper;
+    val jsonNode = mapper.readTree("{\"key\":\"value\"}");
+
+    val id = "1"
+    val banner = Banner(id = Some("1"), w = Some(1))
+    val imp1 = Imp(id = "1", banner = Some(banner))
+    val imp2 = Imp(id = "2", banner = Some(banner))
+    val site = Site(id = Some("1"))
+    val app = App(id = Some("1"))
+    val device = Device(ua = Some("Firefox"))
+    val user = User(id = Some("1"))
+    val test = Some(1)
+    val at = Some(1)
+    val tmax = Some(1)
+    val wseat = Some(List("1", "2"))
+    val allimps = Some(1)
+    val cur = Some(List("USD", "GBP"))
+    val bcat = Some(List("one", "two"))
+    val badv = Some(List("google", "yahoo"))
+    val bapp = Some(List("istore", "googlestore"))
+    val regs = Regs()
+    val ext = Ext(None)
+
+    val bidRequest = BidRequest(
+      id,
+      List(imp1, imp2),
+      Some(site),
+      Some(app),
+      Some(device),
+      Some(user),
+      test,
+      at,
+      tmax,
+      wseat,
+      allimps,
+      cur,
+      bcat,
+      badv,
+      bapp,
+      Some(regs),
+      Some(ext)
+    )
+
+    val expected = Source.fromFile("src/test/resources/bidRequestAsString.txt").mkString
+    val result = transformer.bidRequestToJson(bidRequest)
+
+    assert(result == expected)
   }
 }
