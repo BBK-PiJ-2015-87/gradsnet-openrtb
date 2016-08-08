@@ -33,5 +33,20 @@
     <orderEntry type="library" name="SBT: com.fasterxml.jackson.module:jackson-module-scala_2.11:2.7.5:jar" level="project" />
     <orderEntry type="library" name="SBT: com.thoughtworks.paranamer:paranamer:2.8:jar" level="project" />
     <orderEntry type="library" name="SBT: org.scala-lang:scala-reflect:2.11.8:jar" level="project" />
+    <orderEntry type="library" name="SBT: com.github.fge:btf:1.2:jar" level="project" />
+    <orderEntry type="library" name="SBT: com.github.fge:jackson-coreutils:1.8:jar" level="project" />
+    <orderEntry type="library" name="SBT: com.github.fge:json-schema-core:1.2.5:jar" level="project" />
+    <orderEntry type="library" name="SBT: com.github.fge:json-schema-validator:2.2.6:jar" level="project" />
+    <orderEntry type="library" name="SBT: com.github.fge:msg-simple:1.1:jar" level="project" />
+    <orderEntry type="library" name="SBT: com.github.fge:uri-template:0.9:jar" level="project" />
+    <orderEntry type="library" name="SBT: com.google.code.findbugs:jsr305:3.0.0:jar" level="project" />
+    <orderEntry type="library" name="SBT: com.google.guava:guava:16.0.1:jar" level="project" />
+    <orderEntry type="library" name="SBT: com.googlecode.libphonenumber:libphonenumber:6.2:jar" level="project" />
+    <orderEntry type="library" name="SBT: javax.activation:activation:1.1:jar" level="project" />
+    <orderEntry type="library" name="SBT: javax.mail:mailapi:1.4.3:jar" level="project" />
+    <orderEntry type="library" name="SBT: joda-time:joda-time:2.3:jar" level="project" />
+    <orderEntry type="library" name="SBT: net.sf.jopt-simple:jopt-simple:4.6:jar" level="project" />
+    <orderEntry type="library" name="SBT: org.mozilla:rhino:1.7R4:jar" level="project" />
+    <orderEntry type="library" name="SBT: org.openrtb:openrtb-validator:2.3.1:jar" level="project" />
   </component>
 </module>
