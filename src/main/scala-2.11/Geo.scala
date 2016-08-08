@@ -1,3 +1,5 @@
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize
+
 /**
   * Encapsulates various methods for specifying a geographic location.
   *
@@ -20,20 +22,20 @@
   * @param ext Placeholder for exchange-specific extensions to OpenRTB
   */
 case class Geo(
-              lat:            Option[Float] = None,
-              lon:            Option[Float] = None,
-              typeSource:     Option[Int] = None,
-              accuracy:       Option[Int] = None,
-              lastfix:        Option[Int] = None,
-              ipservice:      Option[Int] = None,
-              country:        Option[String] = None,
-              region:         Option[String] = None,
-              regionfips104:  Option[String] = None,
-              metro:          Option[String] = None,
-              city:           Option[String] = None,
-              zip:            Option[String] = None,
-              utcoffset:      Option[Int] = None,
-              ext:            Option[Ext] = None
+                lat:            Option[Double] = None,
+                lon:            Option[Double] = None,
+                typeSource:     Option[Int] = None,
+                accuracy:       Option[Int] = None,
+                lastfix:        Option[Int] = None,
+                ipservice:      Option[Int] = None,
+                country:        Option[String] = None,
+                region:         Option[String] = None,
+                regionfips104:  Option[String] = None,
+                metro:          Option[String] = None,
+                city:           Option[String] = None,
+                zip:            Option[String] = None,
+                utcoffset:      Option[Int] = None,
+                ext:            Option[Ext] = None
               )
 {
 }
