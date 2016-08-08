@@ -36,7 +36,7 @@ case class Banner(
                  topframe:  Option[Int] = None,
                  expdir:    Option[List[Int]] = None,
                  api:       Option[List[Int]] = None,
-                 ext:       Option[Ext]
+                 ext:       Option[Ext] = None
                  )
 {
 }
